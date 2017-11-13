@@ -1,0 +1,3 @@
+class Box extends MovieClip{
+
+}
