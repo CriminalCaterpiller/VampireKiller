@@ -6,7 +6,7 @@ var facingRight = true;
 var xVel = 0; var yVel = 0;
 var life = 100;
 var canJump = true;
-
+var action = "idle";
 var upP = false;
 
 function update(){
@@ -21,38 +21,20 @@ if (Key.isDown(40)){dwnPress = true;}
 else {dwnPress = false;}
 if (Key.isDown(32)){spacePress = true;}
 else {spacePress = false;}
-
-_x += xVel;
-_y += yVel;
-
-
-if (xVel > 0) xVel--;
-if (xVel < 0) xVel++;
-
-if (yVel < 20) yVel++;
-
-if (xVel >= 1) xVel--;
-if (xVel <= -1) xVel++;
-
-if (_currentFrame == 1 || _currentFrame == 4){
-if (upPress && !upP && canJump) {this.yVel = -14};
+WE.gravity(this);
+_x+=xVel;
+if (xVel > 0) xVel--; if (xVel < 0) xVel++; 
+if (Math.abs(xVel) < 1) xVel = 0;
+if (action == "idle" || action == "fall"){	
+if (upPress and !upP and canJump) {this.yVel = -15};
 if (rgtPress) {this._x += 7; facingRight = true;}
 if (lftPress) {this._x -= 7; facingRight = false;}
 }
-
-upP = upPress;
-
-if (!canJump && _currentFrame != 3) gotoAndPlay("jump");
-
-canJump = false;
-
-if (facingRight){
-if (_xscale<0) {_xscale*=-1;}
-}else{
-if (_xscale>0) {_xscale*=-1;}
-}
-
-if (spacePress and _currentFrame == 1)
-this.gotoAndPlay("slash");
+if (!canJump and action != "hurt") action = "fall";
+if (canJump and action == "fall") action = "idle";
+if (spacePress and action == "idle") action = "slash";
+canJump = false; upP = upPress;
+if (facingRight) gotoAndStop(action + "Right");
+if (!facingRight) gotoAndStop(action + "Left");
 
 }}
