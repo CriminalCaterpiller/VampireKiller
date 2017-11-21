@@ -10,7 +10,6 @@ var action = "idle";
 var upP = false;
 
 function update(){
-
 if (Key.isDown(38)){upPress = true;
 }else {upPress = false;}
 if (Key.isDown(37)){lftPress = true;}
@@ -36,5 +35,4 @@ if (spacePress and action == "idle") action = "slash";
 canJump = false; upP = upPress;
 if (facingRight) gotoAndStop(action + "Right");
 if (!facingRight) gotoAndStop(action + "Left");
-
 }}

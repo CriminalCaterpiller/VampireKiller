@@ -1,13 +1,10 @@
 ﻿class Enemys{
-	
 class Carno extends MovieClip{
 var xVel = 0; var yVel = 0;
 var facingRight = false;
 var passcode = "i dont believe anything you tell me";
 function chase(obj,obstacles){
-
 var sight = {};
-
 if (hitTestArray(this,obstacles)) this.xVel = 0;
 if (xVel == 0){
 if (facingRight){
