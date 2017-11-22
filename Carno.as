@@ -11,7 +11,7 @@ if (WE.hitTestArray(this,obstacles)) this.xVel = 0;
 _height*=1.5;
 if (xVel == 0){
 var canSee = true;
-if (obj._y+obj._height>_y&&obj._y<_y+_height){
+if (obj._y+obj._height>_y && obj._y<_y+_height){
 if (facingRight) {
 xVel = 10;
 }

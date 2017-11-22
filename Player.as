@@ -25,7 +25,7 @@ _x+=xVel;
 if (xVel > 0) xVel--; if (xVel < 0) xVel++; 
 if (Math.abs(xVel) < 1) xVel = 0;
 if (action == "idle" || action == "fall"){	
-if (upPress and !upP and canJump) {this.yVel = -15};
+if (upPress and !upP and canJump) {this.yVel = -17};
 if (rgtPress) {this._x += 7; facingRight = true;}
 if (lftPress) {this._x -= 7; facingRight = false;}
 }
