@@ -2,11 +2,11 @@ class Player extends MovieClip{
 var upPress = false;var lftPress = false;
 var rgtPress = false;var dwnPress = false;
 var spacePress = false;
-var facingRight = true;
 var xVel = 0; var yVel = 0;
 var life = 100;
 var canJump = true;
-var action = "idle";
+var action = "idle"; var facingRight = true;
+var oldAction = "idle"; var oldFacingRight = true;
 var upP = false;
 
 function update(){
@@ -33,6 +33,9 @@ if (!canJump and action != "hurt") action = "fall";
 if (canJump and action == "fall") action = "idle";
 if (spacePress and action == "idle") action = "slash";
 canJump = false; upP = upPress;
-if (facingRight) gotoAndStop(action + "Right");
-if (!facingRight) gotoAndStop(action + "Left");
+if (oldFacingRight != facingRight or oldAction != action){
+if (facingRight) gotoAndPlay(action + "Right");
+if (!facingRight) gotoAndPlay(action + "Left");
+}
+oldAction = action; oldFacingRight = facingRight;
 }}

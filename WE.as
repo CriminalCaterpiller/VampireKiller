@@ -1,5 +1,7 @@
 class WE{
 
+static var volume = 100;
+
 static function gravity(obj){
 obj._y += obj.yVel;
 if (obj.yVel < 20) obj.yVel++;
